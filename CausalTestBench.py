@@ -22,8 +22,8 @@ class CausalTester:
     def kernel_proxy_test(self,lam=None,cv=2):
         quantile_indices = np.linspace(0, 1, 50 + 1)[1:-1]
         T = norm.ppf(quantile_indices)
-        rng = np.random.default_rng(42)  # 创建随机数生成器，种子为 42
-        T = rng.standard_normal(50) 
+        # rng = np.random.default_rng(42)  # 创建随机数生成器，种子为 42
+        # T = rng.standard_normal(50) 
         
         RKHS_Re = MMR_Testing(lam=lam, cv=cv, lam_num=50, func_name='cos')
         RKHS_Im = MMR_Testing(lam=lam, cv=cv, lam_num=50, func_name='sin')
@@ -47,7 +47,7 @@ class CausalTester:
         else:
             input = np.column_stack((self.W, self.V))
             condition = np.column_stack((self.X, self.V))
-            res = RKHS.residual(input, self.Y, input, np.array([1]))
+            res = RKHS.residual(input, self.Y, condition, np.array([1]))
             mh, p, dec, bvals = kcm(condition, res, 2000, 0.05)
         return dec,p
     

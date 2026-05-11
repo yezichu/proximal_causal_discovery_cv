@@ -116,8 +116,7 @@ def run_power_experiments(sample_sizes=[400,600,800,1000,1200],
 
 if __name__ == "__main__":
     logging.basicConfig(filename='experiment3.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-    # results_df = run_power_experiments(n_experiments=20,scenario=False)
-    # results_df.to_csv('indepedent_random.csv', index=False)
-    
-    results_df = run_power_experiments(n_experiments=20,scenario=True)
-    results_df.to_csv('causal_random.csv', index=False)
+    results_ind = run_power_experiments(n_experiments=20,scenario=False)
+    results_ind.to_csv('indepedent_random.csv', index=False)
+    results_cau = run_power_experiments(n_experiments=20,scenario=True)
+    results_cau.to_csv('causal_random.csv', index=False)

@@ -115,14 +115,14 @@ if __name__ == "__main__":
     # Example usage
     logging.basicConfig(filename='experiment7.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
     sample_sizes = [800]
-#     decs_results = run_experiment(
-#     sample_sizes=sample_sizes,
-#     num_samples_per_run=100,
-#     methods=['kernel_proxy_test', 'proxy_test'],
-#     output_path='decs_results_III.json',
-#     use_parallel=True,
-#     n_jobs=50
-# )
+    decs_results = run_experiment(
+    sample_sizes=sample_sizes,
+    num_samples_per_run=100,
+    methods=['kernel_proxy_test', 'proxy_test'],
+    output_path='decs_results_III.json',
+    use_parallel=True,
+    n_jobs=50
+)
     decs_results = run_experiment_nonlinear(
     sample_sizes=sample_sizes,
     num_samples_per_run=100,
